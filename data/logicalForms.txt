@@ -1,0 +1,515 @@
+it sometimes has someone's name with an 's.	
+( before ( getCatInstance email:tt PERSON:ne ) 's:s )
+
+it says the word contact	
+( getPhraseMention email:tt contact:s )
+
+it often says someones first and last name.
+( getCatInstance email:tt PERSON:ne )
+
+emails will often have the word "employee" in them.	
+( getPhraseMention email:tt employee:s )
+	
+emails typically have an "pdf" or "txt" attachment in them.	
+( or ( stringMatch attachment:tt pdf:s ) ( stringMatch attachment:tt txt:s ) )
+
+office announcements are usually from @initech-corp.com.	
+( stringMatch sender:tt @initech-corp.com:s )
+
+emails often have the word "policy" in the subject line.	
+( getPhraseMention tt:subject policy:s )
+
+messages that contain "thank you"
+( getPhraseMention email:tt thank_you:s )
+
+mails containing the word "file" or "report".
+( getPhraseMention email:tt ( merge file:s report:s ) )
+
+they will often contain references to memos.
+( getPhrasesLike email:tt memos:s )
+
+email will often always have "end of day" "or end of week" in the text.	
+( getPhraseMention body:tt ( merge end_of_day:s end_of_week:s ) )
+
+the messages will often contain  "let me know" or a variation
+( getPhrasesLike email:tt let_me_know:s )
+
+references in mail containing "calendar"
+( getPhraseMention body:tt calendar:s )
+
+mails to me usually containing dates and times.
+( and ( stringEquals sender:tt recipient:tt) ( getCatInstance email:tt DATE:ne ) ( getCatInstance email:tt TIME:ne) )
+
+mail from "initech-corp.com" usually containing "meeting"	
+( or ( stringMatch sender:tt initech-corp.com:s ) ( getPhraseMention email:tt meeting:s ) )
+
+the mails will often contain references to a 'project'
+( getPhrasesLike email:tt project:s )
+
+message that reference drinks or drinking
+( getPhrasesLike email:tt ( merge drinks:s drinking:s ) )
+
+messages that contain weekend dates:  "saturday", "friday night"
+( getPhraseMention email:tt (merge saturday:s friday:s ) )
+	
+emails from me referring to "meet".	
+( and ( stringEquals sender:tt recipient:tt) ( getPhraseMention email:tt meet:s ) )
+
+messages containing concerts or sports events.	
+( getPhrasesLike email:tt ( merge concert:s sports_events:s) )
+
+references to bars or dinner.	
+( getPhrasesLike email:tt ( merge bars:s dinner:s ) )
+
+messages containing references to "facebook"	
+( getPhrasesLike email:tt facebook:s )
+
+mail to friends with a link to "youtube.com"
+( getPhraseMention email:tt  youtube.com:s )
+
+emails containing "omg" or "lol".
+( getPhraseMention email:tt ( merge omg:s lol:s ) )
+
+mails to friends with attached videos, typically with "!" in the message	
+( or ( stringMatch attachment:tt mp4:s ) ( getPhraseMention email:tt exclamation:p ) )
+
+messages that contain the word "funny" and include a picture file.
+( and ( getPhraseMention email:tt funny:s ) ( stringMatch attachment:tt jpg:s ) )	
+
+messages to myself that contain a time and date.	
+( and ( stringEquals sender:tt recipient:tt) ( getCatInstance email:tt DATE:ne) ( getCatInstance email:tt TIME:ne)  )
+
+the mails usually contain "bill" or "urgent" in either body or text.
+( getPhraseMention body:tt ( merge bill:s urgent:s ) )
+
+the messages that have "pick up" or "buy" in its body.
+( getPhraseMention body:tt ( merge pick_up:s buy:s ) )
+
+mail to myself containing "meeting" in the text.
+( and ( stringEquals sender:tt recipient:tt) ( getPhraseMention body:tt meeting:s ) )
+
+messages to myself containing "reminder" or "remember" in subject.	
+( and ( stringEquals sender:tt recipient:tt) ( getPhraseMention tt:subject ( merge reminder:s remember:s ) ) )
+
+the emails will sometimes contain a pdf attachment
+( stringMatch attachment:tt pdf:s )
+
+emails will come from the @initech-corp.com domain
+( stringMatch sender:tt  @initech-corp.com:s )
+
+emails will often be sent to all, allstaff, staff, or everyone@initech-corp.com
+( stringMatch recipient:tt ( merge all:s allstaff:s staff:s everyone@initech-corp.com:s ) )
+
+the body of the email will sometimes contain the words "new policy"	
+( getPhraseMention body:tt new_policy:s )
+
+subjects will often contain the word "policy"
+( getPhraseMention tt:subject policy:s )
+
+requests sometimes contain exclamations and question marks.
+( getPhraseMention email:tt (merge exclamation:p question:p ) )
+
+requests sometimes include attachment
+( not ( stringEquals attachment:tt null:s ) )
+
+the word need is often in the body of the message.
+( getPhraseMention body:tt need:s )
+
+requests will usually come from initech-corp.com senders
+( stringMatch sender:tt initech-corp.com:s )
+
+the words please and thanks are often in the body of the email	
+( and (getPhraseMention body:tt please:s ) ( getPhraseMention body:tt thanks:s )  )
+
+meeting requests sometimes include file attachments.
+( not ( stringEquals attachment:tt null:s ) )
+	
+the word schedule will often appear in the body of the email.	
+( getPhraseMention body:tt schedule:s )
+
+meeting requests will often come from initech-corp.com senders.
+( stringMatch sender:tt initech-corp.com:s )
+
+the word meeting will often appear in the subject of the email.
+( getPhraseMention body:tt meeting:s )
+
+emails to friends often contain an activity in the subject.	
+( unknown )
+
+emails to friends sometimes have email attachments
+( not ( stringEquals attachment:tt null:s ) )
+
+emails to friends usually include question marks
+( getPhraseMention email:tt question:p )
+
+emails to friends usually include a time or date or both.	
+( or ( getCatInstance email:tt DATE:ne ) ( getCatInstance email:tt TIME:ne) )
+
+emails to friends usually start with a name or greeting or both.	
+( beginWith body:tt PERSON:ne )
+
+reminder emails usually include commands rather than questions.	
+(not ( getPhraseMention email:tt question:p) )
+
+reminders sometimes have attachments
+( not ( stringEquals attachment:tt null:s ) )
+
+the body often has the word make in it.	
+( getPhraseMention body:tt make:s )
+
+the words remember and reminder often appear in the body	
+( getPhraseMention body:tt ( merge remember:s reminder:s ) )
+
+an email to oneself will often have the same sender and receiver	
+( stringEquals sender:tt recipient:tt )
+
+contact notes sometimes contain email attachments
+( not ( stringEquals attachment:tt null:s ) )
+
+the word remember is sometimes included in the body or subject.	
+( getPhraseMention ( merge body:tt subject:tt) remember:s )
+
+contact notes often include names and phone numbers	
+( and ( getCatInstance email:tt PERSON:ne ) ( getCatInstance email:tt NUMBER:ne ) )
+
+emails to oneself usually have the same sender and receiver	
+( stringEquals sender:tt recipient:tt )
+
+the word contact is often present in a note.	
+( getPhraseMention email:tt  contact:s )
+
+emails that a person sends to themselves are usually not a request.	
+( not ( stringEquals sender:tt recipient:tt ) )
+
+emails from a public domain are usually not requests from a superior.
+( unknown )
+
+emails will frequently have phrases such as "need" or "please."	
+( getPhraseMention email:tt ( merge need:s please:s ) )
+
+emails might, but usually do not have attachments.	
+( not ( not ( stringEquals attachment:tt 	) ) )
+
+emails usually will have phrases such as "meeting" in the subject.	
+( getPhrasesLike subject:tt meeting:s )
+
+body of email may say "funny," "picture," "online," or "internet"	
+( getPhraseMention body:tt ( merge funny:s picture:s online:s internet:s ) )
+
+emails likely will not have phrases such as "meeting" or "policy"	
+( not ( getPhraseMention body:tt  ( merge meeting:s policy:s ) ) )
+
+emails often will have an attachment.
+( not ( stringEquals attachment:tt null:s ) )
+
+emails may have a phone number or email address written within them.	
+( or (getCatInstance email:tt NUMBER:ne) ( getCatInstance email:tt EMAIL:ne ) )
+
+emails may have an attachment.
+( not ( stringEquals attachment:tt null:s ) )
+
+emails are usually to and from the same address.
+( stringEquals sender:tt recipient:tt )
+
+emails likely are not sent to someone else.	
+( stringEquals sender:tt recipient:tt )
+
+phrases such as "don't forget," "remember," and "reminder" are often used.	
+( getPhraseMention body:tt ( merge dont_forget:s remember:s reminder:s) )
+	
+emails may contain an attachment.	
+( not ( stringEquals attachment:tt null:s ) )
+
+phrases such as "code," "policy," "rule," and "required" may be in the body.
+( getPhrasesLike body:tt ( merge code:s policy:s rule:s required:s))
+
+email likely has words such as "policy" or "announcement" in the subject. 	
+( getPhrasesLike subject:tt  ( merge policy:s announcement:s) )
+
+message contains "please"	
+( getPhraseMention email:tt please:s )
+	
+message body contains "i need"	
+( getPhraseMention body:tt i_need:s )
+
+subject heading contains "i need"	
+( getPhraseMention subject:tt i_need:s )
+
+subject contains "request"	
+( getPhraseMention subject:tt request:s )
+
+message contains "meeting"	
+( getPhraseMention email:tt meeting:s )
+
+message body contains "meet"	
+( getPhraseMention body:tt  meet:s )
+
+subject contains "meet"	
+( getPhraseMention subject:tt meet:s )
+
+subject contains "meeting"
+( getPhraseMention subject:tt meeting:s )
+
+message sometimes contains exclamation marks
+( getPhraseMention email:tt exclamation:p )
+
+message contains "fun"	
+( getPhraseMention email:tt fun:s )
+
+message contains "let's"	
+( getPhraseMention email:tt let_s:s )
+
+message sometimes starts with "hey"	
+( beginWith body:tt  hey:s )
+
+message sometimes starts with "hi"	
+( beginWith body:tt hi:s )
+
+message sometimes contains "you have to see this"	
+( getPhraseMention email:tt you_have_to_see_this:s )
+
+message contains "hilarious"
+( getPhraseMention email:tt hilarious:s )
+
+message contains "joke"	
+( getPhraseMention email:tt joke:s )
+
+message has jpg attachment	
+( stringMatch attachment:tt jpg:s )
+
+subject contains "funny"	
+( getPhraseMention subject:tt funny:s )
+
+message contains phone number
+( getCatInstance email:tt NUMBER:ne)
+
+message contains "contact"	
+( getPhraseMention email:tt contact:s )
+
+message contains "remind"	
+( getPhraseMention email:tt remind:s )
+
+message contains "reminder"	
+( getPhraseMention email:tt reminder:s )
+
+sender is same as recipient	
+( stringEquals sender:tt recipient:tt)
+
+message contains phone number
+( getCatInstance email:tt NUMBER:ne)
+
+message contains "contact"
+( getPhraseMention email:tt contact:s )
+
+message contains "remind"
+( getPhraseMention email:tt remind:s )
+
+message contains "reminder"
+( getPhraseMention email:tt reminder:s )
+
+sender is same as recipient	
+( stringEquals sender:tt recipient:tt )
+
+message body contains "new policy"
+( getPhraseMention body:tt new_policy:s )
+
+message body contains "policy change"
+( getPhraseMention body:tt policy_change:s )
+
+subject contains "policy change"
+( getPhraseMention subject:tt policy_change:s )
+
+message is addressed to multiple recipients	
+( greaterThan ( len recipient:tt ) 1:num )
+
+subject contains "new policy"
+( getPhraseMention subject:tt new_policy:s )
+
+it may contain words such as "please" and "thank you."	
+( getPhraseMention email:tt ( merge please:s thank_you:s ) )
+
+it usually contains dates or times. 	
+( or ( getCatInstance email:tt DATE:ne)  ( getCatInstance email:tt TIME:ne) )
+
+it usually closes with a name or title.	
+( endWith body:tt PERSON:ne )
+	
+the email will sometimes contain dates or times. 	
+( or ( getCatInstance email:tt DATE:ne)  ( getCatInstance email:tt TIME:ne) )
+
+often, the email will contain the word "reminder" or "remember"	
+( getPhraseMention email:tt ( merge reminder:s remember:s ) )
+	
+The sender will usually have the same address as the recipient.
+( stringEquals sender:tt recipient:tt )
+
+most reminder emails will not have an attachment.	
+( stringEquals attachment:tt null:s )
+	
+some email reminders will have a date or time listed in the subject.	
+( or ( getCatInstance subject:tt DATE:ne) ( getCatInstance subject:tt TIME:ne) )
+
+some emails will have a text like reminder, note to self,or do this.	
+( getPhrasesLike email:tt ( merge reminder:s note_to_self:s do_this:s ) )
+
+most emails to oneself will have the same address in to and from.	
+( stringEquals sender:tt recipient:tt)
+
+email from a contact with a one word subject	
+( equals ( len subject:tt) 1:num )
+
+if an email mentions 'free" in the message	
+( getPhraseMention email:tt free:s )
+
+email from a contact to attend a concert	
+( getPhrasesLike email:tt attend_a_concert:s )
+
+email from a contact to meet them somewhere	
+( getPhrasesLike email:tt to_meet_them_somewhere:s )
+
+email with an attachment and "event" as the subject.
+( and (not ( stringEquals attachment:tt null:s ) ) ( getPhraseMention subject:tt event:s ) )
+
+an email from your own email address with an attachment	
+( and ( stringEquals sender:tt recipient:tt ) (not ( stringEquals attachment:tt null:s ) ) )
+
+an email from yourself asking you to "remember" something  
+( and ( stringEquals sender:tt recipient:tt ) ( getPhraseMention email:tt remember:s ) )
+
+an email with the same sender and receiver could be this category.
+( stringEquals sender:tt recipient:tt)
+
+emails with "contact" as the subject.	
+( stringEquals subject:tt contact:s )
+
+these emails may have the same to and from email addresses.	
+( stringEquals sender:tt recipient:tt )
+
+there are sometimes words like concert or festival or event	
+( getPhrasesLike email:tt ( merge concert:s festival:s event:s ) )
+
+they are less likely to include someone's name.	
+( not ( getCatInstance email:tt PERSON:ne ) )
+
+they might end with a question mark.	
+( endWith body:tt question:p )
+
+there are sometimes words like meet and hang out.	
+( getPhrasesLike email:tt ( merge meet:s hang_out:s ) )
+
+they sometimes have an exclamation mark at the end.
+( endWith body:tt exclamation:p )
+
+they use words like pick up or pay.	
+( getPhrasesLike email:tt ( merge pick_up:s play:s ) )
+
+they are more likely to say reminder or remember.
+( getPhraseMention email:tt ( merge reminder:s remember:s ) )
+
+it sometimes has someone's name with an 's.	
+( before ( getCatInstance email:tt PERSON:ne ) 's:s )
+
+it says the word contact	
+( getPhraseMention email:tt contact:s )
+
+it often says someones first and last name.
+( getCatInstance email:tt PERSON:ne )
+
+emails will often have the word "employee" in them.	
+( getPhraseMention email:tt employee:s )
+	
+emails typically have an "pdf" or "txt" attachment in them.	
+( or ( stringMatch attachment:tt pdf:s ) ( stringMatch attachment:tt txt:s ) )
+
+office announcements are usually from @initech-corp.com.	
+( stringMatch sender:tt @initech-corp.com:s )
+
+emails often have the word "policy" in the subject line.	
+( getPhraseMention subject:tt policy:s )
+
+messages that contain "thank you"
+( getPhraseMention email:tt thank_you:s )
+
+mails containing the word "file" or "report".
+( getPhraseMention email:tt ( merge file:s report:s ) )
+
+they will often contain references to memos.
+( getPhrasesLike email:tt memos:s )
+
+email will often always have "end of day" "or end of week" in the text.	
+( getPhraseMention body:tt ( merge end_of_day:s end_of_week:s ) )
+
+the messages will often contain  "let me know" or a variation
+( getPhrasesLike email:tt let_me_know:s )
+
+references in mail containing "calendar"
+( getPhraseMention body:tt calendar:s )
+
+mails to me usually containing dates and times.
+( and ( stringEquals sender:tt recipient:tt) ( getCatInstance email:tt DATE:ne ) ( getCatInstance email:tt TIME:ne) )
+
+mail from "initech-corp.com" usually containing "meeting"	
+( or ( stringMatch sender:tt initech-corp.com:s ) ( getPhraseMention email:tt meeting:s ) )
+
+the mails will often contain references to a 'project'
+( getPhrasesLike email:tt project:s )
+
+message that reference drinks or drinking
+( getPhrasesLike email:tt ( merge drinks:s drinking:s ) )
+
+messages that contain weekend dates:  "saturday", "friday night"
+( getPhraseMention email:tt (merge saturday:s friday:s ) )
+	
+emails from me referring to "meet".	
+( and ( stringEquals sender:tt recipient:tt) ( getPhraseMention email:tt meet:s ) )
+
+messages containing concerts or sports events.	
+( getPhrasesLike email:tt ( merge concert:s sports_events:s) )
+
+references to bars or dinner.	
+( getPhrasesLike email:tt ( merge bars:s dinner:s ) )
+
+messages containing references to "facebook"	
+( getPhrasesLike email:tt facebook:s )
+
+mail to friends with a link to "youtube.com"
+( getPhraseMention email:tt  youtube.com:s )
+
+emails containing "omg" or "lol".
+( getPhraseMention email:tt ( merge omg:s lol:s ) )
+
+mails to friends with attached videos, typically with "!" in the message	
+( or ( stringMatch attachment:tt mp4:s ) ( getPhraseMention email:tt exclamation:p ) )
+
+messages that contain the word "funny" and include a picture file.
+( and ( getPhraseMention email:tt funny:s ) ( stringMatch attachment:tt jpg:s ) )	
+
+messages to myself that contain a time and date.	
+( and ( stringEquals sender:tt recipient:tt) ( getCatInstance email:tt DATE:ne) ( getCatInstance email:tt TIME:ne)  )
+
+the mails usually contain "bill" or "urgent" in either body or text.
+( getPhraseMention body:tt ( merge bill:s urgent:s ) )
+
+the messages that have "pick up" or "buy" in its body.
+( getPhraseMention body:tt ( merge pick_up:s buy:s ) )
+
+mail to myself containing "meeting" in the text.
+( and ( stringEquals sender:tt recipient:tt) ( getPhraseMention body:tt meeting:s ) )
+
+messages to myself containing "reminder" or "remember" in subject.	
+( and ( stringEquals sender:tt recipient:tt) ( getPhraseMention subject:tt ( merge reminder:s remember:s ) ) )
+
+the emails will sometimes contain a pdf attachment
+( stringMatch attachment:tt pdf:s )
+
+emails will come from the @initech-corp.com domain
+( stringMatch sender:tt  @initech-corp.com:s )
+
+emails will often be sent to all, allstaff, staff, or everyone@initech-corp.com
+( stringMatch recipient:tt ( merge all:s allstaff:s staff:s everyone@initech-corp.com:s ) )
+
+the body of the email will sometimes contain the words "new policy"	
+( getPhraseMention body:tt new_policy:s )
+
+subjects will often contain the word "policy"
+( getPhraseMention subject:tt policy:s )
