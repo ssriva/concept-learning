@@ -3,8 +3,6 @@ package data;
 import java.io.*;
 import java.util.*;
 
-import edu.stanford.nlp.hcoref.data.CorefChain;
-import edu.stanford.nlp.hcoref.CorefCoreAnnotations;
 import edu.stanford.nlp.io.*;
 import edu.stanford.nlp.ling.*;
 import edu.stanford.nlp.pipeline.*;
@@ -104,23 +102,6 @@ public class CoreNLPWriter {
 	      // each chain stores a set of mentions that co-refer with each other,
 	      // along with a method for getting the most representative mention.
 	      // Both sentence and token offsets start at 1!
-	      out.println("Coreference information");
-	      Map<Integer, CorefChain> corefChains =
-	          annotation.get(CorefCoreAnnotations.CorefChainAnnotation.class);
-	      if (corefChains == null) { return; }
-	      for (Map.Entry<Integer,CorefChain> entry: corefChains.entrySet()) {
-	        out.println("Chain " + entry.getKey() + " ");
-	        for (CorefChain.CorefMention m : entry.getValue().getMentionsInTextualOrder()) {
-	          // We need to subtract one since the indices count from 1 but the Lists start from 0
-	          List<CoreLabel> tokens = sentences.get(m.sentNum - 1).get(CoreAnnotations.TokensAnnotation.class);
-	          // We subtract two for end: one for 0-based indexing, and one because we want last token of mention not one following.
-	          out.println("  " + m + ", i.e., 0-based character offsets [" + tokens.get(m.startIndex - 1).beginPosition() +
-	                  ", " + tokens.get(m.endIndex - 2).endPosition() + ")");
-	        }
-	      }
-	      out.println();
-
-	      out.println("The first sentence overall sentiment rating is " + sentence.get(SentimentCoreAnnotations.SentimentClass.class));
 	    }
 	    IOUtils.closeIgnoringExceptions(out);
 	    IOUtils.closeIgnoringExceptions(xmlOut);
