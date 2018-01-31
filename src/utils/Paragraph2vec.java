@@ -3,7 +3,6 @@ package utils;
 
 import java.io.IOException;
 
-import org.apache.commons.lang3.StringUtils;
 /*
 import org.deeplearning4j.models.embeddings.loader.WordVectorSerializer;
 import org.deeplearning4j.models.paragraphvectors.ParagraphVectors;
@@ -17,12 +16,12 @@ import org.deeplearning4j.text.tokenization.tokenizerfactory.TokenizerFactory;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.ops.transforms.Transforms;
 */
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
 public class Paragraph2vec {
 
-	private static final Logger log = LoggerFactory.getLogger(Paragraph2vec.class);
+//	private static final Logger log = LoggerFactory.getLogger(Paragraph2vec.class);
 
 	public static void train(){
 		/*
