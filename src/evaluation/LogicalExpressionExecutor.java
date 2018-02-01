@@ -8,6 +8,7 @@ import java.lang.reflect.Method;
 import utils.TSVEmailReader;
 
 import com.google.common.base.Preconditions;
+import com.google.common.collect.Lists;
 import com.jayantkrish.jklol.ccg.lambda.ExpressionParser;
 import com.jayantkrish.jklol.ccg.lambda2.Expression2;
 
@@ -78,6 +79,7 @@ public class LogicalExpressionExecutor {
 	}
 
 	public static void main(String []args){
+		
 
 		//Expression2 expr = LogicalExpressionExecutor.getExpressionFromString("( ( a b ) c ( (d e) (f (g h) ) ) ) ");
 		//Expression2 expr = LogicalExpressionExecutor.getExpressionFromString("(a ( b c ))");

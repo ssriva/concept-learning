@@ -65,7 +65,6 @@ public class GoldParsesExperiment {
 				}
 				s.setLogicalForm(lf);
 			}
-			System.exit(0);
 			
 			// Evaluate each email on each statement, and print Fvec to a file.
 			ArrayList<ArrayList<Integer>> data = new ArrayList<ArrayList<Integer>>();
