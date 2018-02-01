@@ -52,9 +52,10 @@ public class GoldParsesExperiment {
 		// For each category, read emails and statements. Keep unique statements only.
 		for(String category:EnumLists.categories){
 			
-			List<EmailObject> emails = TSVEmailReader.parseTSVFileToEmails("/Users/shashans/Work/ConceptLearning/mturk/Emails/email_Dec20.log"); //.stream().filter( e -> e.categories.get(0).equals(category)).collect(Collectors.toList());
+			List<EmailObject> emails = TSVEmailReader.parseTSVFileToEmails("data/emails.dataset"); //.stream().filter( e -> e.categories.get(0).equals(category)).collect(Collectors.toList());
+			
 			//emails.addAll(TSVEmailReader.parseTSVFileToEmails("/Users/shashans/Work/ConceptLearning/mturk/Emails/email_Dec20.log").stream().filter( e -> (Math.random()<=1.0)).collect(Collectors.toList()));
-			List<Statement> statements = TSVStatementReader.parseTSVFileToStatements("/Users/shashans/Work/ConceptLearning/mturk/Statements/evaluation_email_Dec23.sorted.txt", 2).stream().filter( s -> s.category.equals(category)).collect(Collectors.toList()).stream().filter(distinctByKey(s -> s.statement)).collect(Collectors.toList());
+			List<Statement> statements = TSVStatementReader.parseTSVFileToStatements("data/evaluation_email_Dec23.sorted.txt", 2).stream().filter( s -> s.category.equals(category)).collect(Collectors.toList()).stream().filter(distinctByKey(s -> s.statement)).collect(Collectors.toList());
 
 			// Get parses for statements
 			for(Statement s:statements){
@@ -64,6 +65,7 @@ public class GoldParsesExperiment {
 				}
 				s.setLogicalForm(lf);
 			}
+			System.exit(0);
 			
 			// Evaluate each email on each statement, and print Fvec to a file.
 			ArrayList<ArrayList<Integer>> data = new ArrayList<ArrayList<Integer>>();
