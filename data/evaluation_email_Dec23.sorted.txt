@@ -1,0 +1,185 @@
+A1XUZFDVKP95VC	MEETING	4__very_useful	from amy@initech-corp.com
+A1XUZFDVKP95VC	MEETING	4__very_useful	from igor@initech-corp.com
+A1XUZFDVKP95VC	MEETING	4__very_useful	from john@initech-corp.com
+A1XUZFDVKP95VC	MEETING	4__very_useful	from mary@initech-corp.com
+A1XUZFDVKP95VC	MEETING	4__very_useful	from mike@initech-corp.com
+A1XUZFDVKP95VC	EVENT	2__perhaps_useful	! is used
+A1XUZFDVKP95VC	EVENT	2__perhaps_useful	coffee is used
+A1XUZFDVKP95VC	EVENT	2__perhaps_useful	festival is used
+A1XUZFDVKP95VC	EVENT	2__perhaps_useful	meet up is used
+A1XUZFDVKP95VC	EVENT	3__probably_useful	to is not @initech-corp.com
+A1XUZFDVKP95VC	HUMOR	2__perhaps_useful	"uses many ""!"""
+A1XUZFDVKP95VC	HUMOR	3__probably_useful	"has ""youtube"" in the email"
+A1XUZFDVKP95VC	HUMOR	3__probably_useful	has an attachment
+A1XUZFDVKP95VC	HUMOR	3__probably_useful	"uses the word ""OMG:"
+A1XUZFDVKP95VC	HUMOR	3__probably_useful	"uses the word ""funny"""
+A1XUZFDVKP95VC	REMINDER	1__probably_not_useful	"has word ""meeting"""
+A1XUZFDVKP95VC	REMINDER	1__probably_not_useful	title is all caps
+A1XUZFDVKP95VC	REMINDER	2__perhaps_useful	has an attachment
+A1XUZFDVKP95VC	REMINDER	3__probably_useful	"has word ""reminder"" "
+A1XUZFDVKP95VC	REMINDER	3__probably_useful	to and from are same address
+A1XUZFDVKP95VC	POLICY	3__probably_useful	has words new and policy
+A1XUZFDVKP95VC	POLICY	4__very_useful	can include alldeptemployees@initech-corp.com
+A1XUZFDVKP95VC	POLICY	4__very_useful	has .pdf attachments
+A1XUZFDVKP95VC	POLICY	4__very_useful	has office policy
+A1XUZFDVKP95VC	POLICY	4__very_useful	has the name Mary in email
+A234SA9RO156TR	EMPLOYEE	1__probably_not_useful	Requests sometimes contain exclamations and question marks.	"getPhraseMention(tt:email, merge(""!"",""?""))"
+A234SA9RO156TR	EMPLOYEE	2__perhaps_useful	Requests sometimes include attachments	"!stringEquals(tt:attachment,NULL)"
+A234SA9RO156TR	EMPLOYEE	2__perhaps_useful	The word need is often in the body of the message.	"getPhraseMention(tt:body,""need"")"
+A234SA9RO156TR	EMPLOYEE	4__very_useful	Requests will usually come from initech-corp.com senders	"stringMatch(tt:sender, ""initech-corp.com"")"
+A234SA9RO156TR	EMPLOYEE	4__very_useful	The words please and thanks are often in the body of the email	"and (getPhraseMention(tt:body, ""please"") , getPhraseMention(tt:body, ""thanks""))"
+A234SA9RO156TR	MEETING	2__perhaps_useful	Meeting requests sometimes include file attachments.	"!stringEquals(tt:attachment,NULL)"
+A234SA9RO156TR	MEETING	3__probably_useful	Meeting requests often mention the email receiver by name.	
+A234SA9RO156TR	MEETING	3__probably_useful	The word schedule will often appear in the body of the email.	"getPhraseMention(tt:body,""schedule"")"
+A234SA9RO156TR	MEETING	4__very_useful	Meeting requests will often come from initech-corp.com senders.	"stringMatch(tt:sender, ""initech-corp.com"")"
+A234SA9RO156TR	MEETING	4__very_useful	The word meeting will often appear in the subject of the email.	"getPhraseMention(tt:subject,""meeting"")"
+A234SA9RO156TR	EVENT	1__probably_not_useful	Emails to friends often contain an activity in the subject.	unknown
+A234SA9RO156TR	EVENT	1__probably_not_useful	Emails to friends sometimes have email attachments	"!stringEquals(tt:attachment,NULL)"
+A234SA9RO156TR	EVENT	3__probably_useful	Emails to friends usually include question marks	"getPhraseMention(tt:email, ""?"")"
+A234SA9RO156TR	EVENT	4__very_useful	Emails to friends usually include a time or date or both.	"or( getCatInstance(tt:email, ne:DATE) , getCatInstance(tt:email, ne:TIME) )"
+A234SA9RO156TR	EVENT	4__very_useful	Emails to friends usually start with a name or greeting or both.	"beginWith(tt:body, ne:PERSON )"
+A234SA9RO156TR	REMINDER	1__probably_not_useful	Reminder emails usually include commands rather than questions.	"!getPhraseMention(tt:email , ""?"")"
+A234SA9RO156TR	REMINDER	2__perhaps_useful	Reminders sometimes have attachments	"!stringEquals(tt:attachment,NULL)"
+A234SA9RO156TR	REMINDER	3__probably_useful	The body often has the word make in it.	"getPhraseMention(tt:body,""make"")"
+A234SA9RO156TR	REMINDER	3__probably_useful	The words remember and reminder often appear in the body	"getPhraseMention(tt:body, merge(""remember"",""reminder""))"
+A234SA9RO156TR	REMINDER	4__very_useful	An email to oneself will often have the same sender and receiver	"stringEquals( tt:sender, tt:recipient)"
+A234SA9RO156TR	CONTACT	2__perhaps_useful	Contact notes sometimes contain email attachments	"!stringEquals(tt:attachment,NULL)"
+A234SA9RO156TR	CONTACT	2__perhaps_useful	The word remember is sometimes included in the body or subject.	"getPhraseMention( merge(tt:body, tt:subject),""remember"")"
+A234SA9RO156TR	CONTACT	3__probably_useful	Contact notes often include names and phone numbers	"and( getCatInstance(tt:email, ne:PERSON) , getCatInstance(tt:email, ne:NUMBER) )"
+A234SA9RO156TR	CONTACT	4__very_useful	Emails to oneself usually have the same sender and receiver	"stringEquals( tt:sender, tt:recipient)"
+A234SA9RO156TR	CONTACT	4__very_useful	The word contact is often present in a note.	"getPhraseMention(tt:email, ""contact"")"
+A29NLP62H8KF1M	EMPLOYEE	3__probably_useful	Emails are often a few sentences long.	
+A29NLP62H8KF1M	EMPLOYEE	3__probably_useful	Emails that a person sends to themselves are usually not a request.	"!stringEquals( tt:sender, tt:recipient)"
+A29NLP62H8KF1M	EMPLOYEE	4__very_useful	Emails from a public domain are usually not requests from a superior.	unknown
+A29NLP62H8KF1M	EMPLOYEE	4__very_useful	Emails often are sent and received from the same private domain.	
+A29NLP62H8KF1M	EMPLOYEE	4__very_useful	"Emails will frequently have phrases such as ""need"" or ""please."""	"getPhraseMention(tt:email, merge(""need"",""please""))"
+A29NLP62H8KF1M	MEETING	2__perhaps_useful	"Emails might, but usually do not have attachments."	"stringEquals(tt:attachment,NULL)"
+A29NLP62H8KF1M	MEETING	3__probably_useful	Emails often are sent to someone at the same domain.	
+A29NLP62H8KF1M	MEETING	3__probably_useful	Emails tend to not be from someone at a different domain.	
+A29NLP62H8KF1M	MEETING	3__probably_useful	Emails usually are only a few sentences long.	
+A29NLP62H8KF1M	MEETING	4__very_useful	"Emails usually will have phrases such as ""meeting"" in the subject."	"getPhrasesLike(tt:subject, ""meeting"")"
+A29NLP62H8KF1M	HUMOR	3__probably_useful	"Body of email may say ""funny,"" ""picture,"" ""online,"" or ""internet"""	"getPhraseMention(tt:body, merge(""funny"",""picture"",""online"",""internet""))"
+A29NLP62H8KF1M	HUMOR	3__probably_useful	Emails can be to someone of a different domain.	
+A29NLP62H8KF1M	HUMOR	3__probably_useful	"Emails likely will not have phrases such as ""meeting"" or ""policy"""	"!getPhraseMention(tt:body, merge(""meeting"",""policy""))"
+A29NLP62H8KF1M	HUMOR	4__very_useful	Emails often will have an attachment.	"!stringEquals(tt:attachment,NULL)"
+A29NLP62H8KF1M	HUMOR	4__very_useful	Emails will often only be a few sentences in the body.	
+A29NLP62H8KF1M	CONTACT	3__probably_useful	Emails may have a phone number or email address written within them.	"or(getCatInstance(tt:email, ne:NUMBER) , getCatInstance(tt:email, ne:EMAIL))"
+A29NLP62H8KF1M	CONTACT	3__probably_useful	Emails may have an attachment.	"!stringEquals(tt:attachment,NULL)"
+A29NLP62H8KF1M	CONTACT	4__very_useful	Emails are usually to and from the same address.	"stringEquals( tt:sender, tt:recipient)"
+A29NLP62H8KF1M	CONTACT	4__very_useful	Emails likely are not sent to someone else.	"stringEquals( tt:sender, tt:recipient)"
+A29NLP62H8KF1M	CONTACT	4__very_useful	Phrases such as ""don't forget,"" ""remember,"" and ""reminder"" are often used.	"getPhraseMention(tt:body, merge(""don't forget"",""remember"",""reminder""))"
+A29NLP62H8KF1M	POLICY	3__probably_useful	Emails are usually not sent to someone at a different domain.	
+A29NLP62H8KF1M	POLICY	3__probably_useful	Emails may contain an attachment.	"!stringEquals(tt:attachment,NULL)"
+A29NLP62H8KF1M	POLICY	3__probably_useful	"Phrases such as ""code,"" ""policy,"" ""rule,"" and ""required"" may be in the body."	"getPhraseMention(tt:body, merge(""code"",""policy"",""rule"",""required""))"
+A29NLP62H8KF1M	POLICY	4__very_useful	"Email likely has words such as ""policy"" or ""announcement"" in the subject. "	"getPhraseMention(tt:subject, merge(""policy"",""announcement""))"
+A29NLP62H8KF1M	POLICY	4__very_useful	Emails are usually sent to someone else at the same domain.	
+A2ADEPVGNNXNPA	EMPLOYEE	2__perhaps_useful	"Message contains ""please"""	"getPhraseMention(tt:body,""please"")"
+A2ADEPVGNNXNPA	EMPLOYEE	2__perhaps_useful	Sender and recipient both are work addresses	
+A2ADEPVGNNXNPA	EMPLOYEE	3__probably_useful	"Message body contains ""I need"""	"getPhraseMention(tt:body,""I need"")"
+A2ADEPVGNNXNPA	EMPLOYEE	3__probably_useful	Sender has same domain address as recipient	
+A2ADEPVGNNXNPA	EMPLOYEE	3__probably_useful	"Subject heading contains ""I need"""	"getPhraseMention(tt:subject,""I need"")"
+A2ADEPVGNNXNPA	MEETING	1__probably_not_useful	"subject contains ""request"""	"getPhraseMention(tt:subject,""request"")"
+A2ADEPVGNNXNPA	MEETING	3__probably_useful	"Message contains ""meeting"""	"getPhraseMention(tt:email,""meeting"")"
+A2ADEPVGNNXNPA	MEETING	3__probably_useful	"message body contains ""meet"""	"getPhraseMention(tt:body,""meet"")"
+A2ADEPVGNNXNPA	MEETING	3__probably_useful	"subject contains ""meet"""	"getPhraseMention(tt:subject,""meet"")"
+A2ADEPVGNNXNPA	MEETING	3__probably_useful	"subject contains ""meeting"""	"getPhraseMention(tt:subject,""meeting"")"
+A2ADEPVGNNXNPA	EVENT	2__perhaps_useful	Message sometimes contains exclamation marks	"getPhraseMention(tt:email, ""!"")"
+A2ADEPVGNNXNPA	EVENT	2__perhaps_useful	"message contains ""fun"""	"getPhraseMention(tt:email, ""fun"")"
+A2ADEPVGNNXNPA	EVENT	2__perhaps_useful	"message contains ""let's"""	"getPhraseMention(tt:email, ""let's"")"
+A2ADEPVGNNXNPA	EVENT	2__perhaps_useful	"message sometimes starts with ""hey"""	"beginWith(tt:body, ""hey"" )"
+A2ADEPVGNNXNPA	EVENT	3__probably_useful	"message sometimes starts with ""hi"""	"beginWith(tt:body, ""hi"" )"
+A2ADEPVGNNXNPA	HUMOR	2__perhaps_useful	"message sometimes contains ""you have to see this"""	"getPhraseMention(tt:email,""You have to see this"")"
+A2ADEPVGNNXNPA	HUMOR	3__probably_useful	"message contains ""hilarious"""	"getPhraseMention(tt:email, ""hilarious"")"
+A2ADEPVGNNXNPA	HUMOR	3__probably_useful	"message contains ""joke"""	"getPhraseMention(tt:email, ""joke"")"
+A2ADEPVGNNXNPA	HUMOR	3__probably_useful	message has jpg attachment	"stringMatch(tt:attachment, ""jpg"")"
+A2ADEPVGNNXNPA	HUMOR	3__probably_useful	"subject contains ""funny"""	"getPhraseMention( tt:subject, ""funny"")"
+A2ADEPVGNNXNPA	REMINDER	2__perhaps_useful	Message contains phone number	"getCatInstance( tt:email, ne:NUMBER)"
+A2ADEPVGNNXNPA	REMINDER	3__probably_useful	"Message contains ""contact"""	"getPhraseMention(tt:email, ""contact"")"
+A2ADEPVGNNXNPA	REMINDER	3__probably_useful	"Message contains ""remind"""	"getPhraseMention(tt:email, ""remind"")"
+A2ADEPVGNNXNPA	REMINDER	3__probably_useful	"Message contains ""reminder"""	"getPhraseMention(tt:email, ""reminder"")"
+A2ADEPVGNNXNPA	REMINDER	3__probably_useful	Sender is same as recipient	"stringEquals( tt:sender, tt:recipient)"
+A2ADEPVGNNXNPA	CONTACT	2__perhaps_useful	Message contains phone number	"getCatInstance( tt:email, ne:NUMBER)"
+A2ADEPVGNNXNPA	CONTACT	3__probably_useful	"Message contains ""contact"""	"getPhraseMention(tt:email, ""contact"")"
+A2ADEPVGNNXNPA	CONTACT	3__probably_useful	"Message contains ""remind"""	"getPhraseMention(tt:email, ""remind"")"
+A2ADEPVGNNXNPA	CONTACT	3__probably_useful	"Message contains ""reminder"""	"getPhraseMention(tt:email, ""reminder"")"
+A2ADEPVGNNXNPA	CONTACT	3__probably_useful	Sender is same as recipient	"stringEquals( tt:sender, tt:recipient)"
+A2ADEPVGNNXNPA	POLICY	3__probably_useful	"Message body contains ""new policy"""	"getPhraseMention(tt:body, ""new policy"")"
+A2ADEPVGNNXNPA	POLICY	3__probably_useful	"Message body contains ""policy change"""	"getPhraseMention(tt:body, ""policy change"")"
+A2ADEPVGNNXNPA	POLICY	3__probably_useful	"Subject contains ""policy change"""	"getPhraseMention(tt:subject, ""policy change"")"
+A2ADEPVGNNXNPA	POLICY	4__very_useful	Message is addressed to multiple recipients	"greaterThan( len(recipients), 1 )"
+A2ADEPVGNNXNPA	POLICY	4__very_useful	"Subject contains ""new policy"""	"getPhraseMention(tt:subject, ""new policy"")"
+A2AWBDW9V1E9KT	EMPLOYEE	2__perhaps_useful	"It may contain words such as ""please"" and ""thank you."""	"getPhraseMention(tt:email, merge(""please"",""thank you""))"
+A2AWBDW9V1E9KT	EMPLOYEE	2__perhaps_useful	It usually contains dates or times. 	"or( getCatInstance(tt:email, ne:DATE) , getCatInstance(tt:email, ne:TIME) )"
+A2AWBDW9V1E9KT	EMPLOYEE	2__perhaps_useful	The sender and recipient will often be from the same domain. 	
+A2AWBDW9V1E9KT	EMPLOYEE	3__probably_useful	A request to a subordinate usually closes with a name or title.	"endWith(tt:body, ne:PERSON )"
+A2AWBDW9V1E9KT	EMPLOYEE	3__probably_useful	A request to a subordinate will usually start with a salutation. 	
+A2AWBDW9V1E9KT	REMINDER	1__probably_not_useful	Am email reminder to self may contain lists. 	
+A2AWBDW9V1E9KT	REMINDER	1__probably_not_useful	The email will sometimes contain dates or times. 	"or( getCatInstance(tt:email, ne:DATE) , getCatInstance(tt:email, ne:TIME) )"
+A2AWBDW9V1E9KT	REMINDER	3__probably_useful	"Often, the email will contain the word ""reminder"" or ""remember"""	"getPhraseMention(tt:email, merge(""reminder"",""remember""))"
+A2AWBDW9V1E9KT	REMINDER	3__probably_useful	Usually. the body of the email won't contain any salutations.	
+A2AWBDW9V1E9KT	REMINDER	4__very_useful	The sender will usually have the same address as the recipient.	"stringEquals( tt:sender, tt:recipient)"
+A341XKSRZ58FJK	REMINDER	2__perhaps_useful	Most reminder emails will not have an attachment.	"stringEquals(tt:attachment,NULL)"
+A341XKSRZ58FJK	REMINDER	2__perhaps_useful	Some email reminders will have contact details in the message.	
+A341XKSRZ58FJK	REMINDER	3__probably_useful	Some email reminders will have a date or time listed in the subject.	"or( getCatInstance(tt:subject, ne:DATE) , getCatInstance(tt:subject, ne:TIME) )"
+A341XKSRZ58FJK	REMINDER	3__probably_useful	"Some emails will have a text like reminder, note to self,or do this."	
+A341XKSRZ58FJK	REMINDER	4__very_useful	Most emails to oneself will have the same address in To and From.	"stringEquals( tt:sender, tt:recipient)"
+A38DXFI1TZA295	EVENT	2__perhaps_useful	Email from a contact with a one-word subject	"stringEquals( len(tt:subject), ""1"")"
+A38DXFI1TZA295	EVENT	2__perhaps_useful	"If an email mentions 'free"" in the message"	"getPhraseMention(tt:email, ""free"")"
+A38DXFI1TZA295	EVENT	3__probably_useful	Email from a contact to attend a concert	"getPhrasesLike(tt:email, ""attend a concert"")"
+A38DXFI1TZA295	EVENT	3__probably_useful	Email from a contact to meet them somewhere	"getPhrasesLike(tt:email, ""to meet them somewhere"")"
+A38DXFI1TZA295	EVENT	3__probably_useful	"Email with an attachment and ""event"" as the subject."	"and( !stringEquals(tt:attachment,NULL) , getPhraseMention(tt:subject,""event"") )"
+A38DXFI1TZA295	CONTACT	2__perhaps_useful	An email from your own email address with an attachment	"and ( stringEquals( tt:sender, tt:recipient), !stringEquals(tt:attachment,NULL) )"
+A38DXFI1TZA295	CONTACT	2__perhaps_useful	"An email from yourself asking you to ""remember"" something  "	"and ( stringEquals( tt:sender, tt:recipient) , getPhraseMention(tt:email, ""remember"") )"
+A38DXFI1TZA295	CONTACT	3__probably_useful	An email with the same Sender and Receiver could be this category.	"stringEquals( tt:sender, tt:recipient)"
+A38DXFI1TZA295	CONTACT	4__very_useful	"Emails with ""Contact"" as the subject."	"stringEquals(tt:subject, ""contact"")"
+A38DXFI1TZA295	CONTACT	4__very_useful	These emails may have the same TO and FROM email addresses.	"stringEquals( tt:sender, tt:recipient)"
+A3RS7UCO7CQ74R	EVENT	2__perhaps_useful	There are sometimes words like concert or festival or event	"getPhrasesLike(tt:email, merge(""concert"",""festival"",""event"") )"
+A3RS7UCO7CQ74R	EVENT	2__perhaps_useful	They are less likely to include someone's name.	"getCatInstance( tt:email, ne:PERSON)"
+A3RS7UCO7CQ74R	EVENT	2__perhaps_useful	They might end with a question mark.	"endWith(tt:body, ""?"" )"
+A3RS7UCO7CQ74R	EVENT	3__probably_useful	There are sometimes words like meet and hang out.	"getPhrasesLike(tt:email, merge(""meet"",""hang out"") )"
+A3RS7UCO7CQ74R	EVENT	4__very_useful	They sometimes have an exclamation mark at the end.	"endWith(tt:body, ""!"" )"
+A3RS7UCO7CQ74R	REMINDER	2__perhaps_useful	They sound more personal	
+A3RS7UCO7CQ74R	REMINDER	2__perhaps_useful	They sound more urgent	
+A3RS7UCO7CQ74R	REMINDER	2__perhaps_useful	They use more informal language.	
+A3RS7UCO7CQ74R	REMINDER	3__probably_useful	They use words like pick up or pay.	"getPhrasesLike(tt:email, merge(""pick up"",""play"") )"
+A3RS7UCO7CQ74R	REMINDER	4__very_useful	They are more likely to say reminder or remember.	"getPhraseMention(tt:email, merge(""reminder"",""remember""))"
+A3RS7UCO7CQ74R	CONTACT	2__perhaps_useful	It sometimes has someone's name with an 's.	"before( getCatInstance(tt:email, ne:PERSON), ""'s"")"
+A3RS7UCO7CQ74R	CONTACT	2__perhaps_useful	It sometimes has someone's name with just one other word	
+A3RS7UCO7CQ74R	CONTACT	2__perhaps_useful	The subject might be very short.	
+A3RS7UCO7CQ74R	CONTACT	4__very_useful	It says the word contact	"getPhraseMention(tt:email, ""contact"")"
+A3RS7UCO7CQ74R	CONTACT	4__very_useful	it often says someones first and last name.	"getCatInstance( tt:email, ne:PERSON)"
+A94DL4GI8ZBUO	POLICY	2__perhaps_useful	"Emails will often have the word ""employee"" in them."	"getPhraseMention(tt:email, ""employee"")"
+A94DL4GI8ZBUO	POLICY	2__perhaps_useful	Emails will often mention a day of the week.	
+A94DL4GI8ZBUO	POLICY	3__probably_useful	"Emails typically have an "".pdf"" or "".txt"" attachment in them."	"or(stringMatch(tt:attachment, ""jpg""), stringMatch(tt:attachment, ""txt""))"
+A94DL4GI8ZBUO	POLICY	3__probably_useful	Office announcements are usually from @initech-corp.com.	"stringMatch(tt:sender, ""@initech-corp.com"")"
+A94DL4GI8ZBUO	POLICY	4__very_useful	"Emails often have the word ""policy"" in the subject line."	"getPhraseMention(tt:subject, ""policy"")"
+AJWES6SFIP3AT	EMPLOYEE	1__probably_not_useful	"Messages that contain ""Thank you"""	"getPhraseMention(tt:email, ""thank you"")"
+AJWES6SFIP3AT	EMPLOYEE	3__probably_useful	"Mails containing the word ""file"" or ""report""."	"getPhraseMention(tt:email, merge(""file"", ""report""))"
+AJWES6SFIP3AT	EMPLOYEE	3__probably_useful	They will often contain references to memos.	"getPhrasesLike(tt:email, ""memo"")"
+AJWES6SFIP3AT	EMPLOYEE	4__very_useful	"Email will often always have ""end of day"" ""or end of week"" in the text."	"getPhraseMention(tt:body, merge(""end of day"",""end of week""))"
+AJWES6SFIP3AT	EMPLOYEE	4__very_useful	"The messages will often contain  ""let me know"" or a variation"	"getPhrasesLike(tt:email, ""let me know"")"
+AJWES6SFIP3AT	MEETING	2__perhaps_useful	Messages that have in the body of text the various days of the week.	
+AJWES6SFIP3AT	MEETING	2__perhaps_useful	"References in mail containing ""calendar"""	"getPhraseMention(tt:body, ""calendar"")"
+AJWES6SFIP3AT	MEETING	3__probably_useful	Mails to me usually containing dates and times.	"and( getCatInstance(tt:email, ne:DATE) , getCatInstance(tt:email, ne:TIME), stringEquals(tt:sender, tt:recipient) )"
+AJWES6SFIP3AT	MEETING	4__very_useful	"Mail from ""initech-corp.com"" usually containing ""meeting"""	"or(stringMatch(tt:sender,""initech-corp.com"") , getPhraseMention(tt:email,""meeting"") )"
+AJWES6SFIP3AT	MEETING	4__very_useful	The mails will often contain references to a 'project'	"getPhrasesLike(tt:email, ""project"")"
+AJWES6SFIP3AT	EVENT	1__probably_not_useful	Message that reference drinks or drinking	"getPhrasesLike(tt:email, merge(""drinks"",""drinking""))"
+AJWES6SFIP3AT	EVENT	2__perhaps_useful	"Messages that contain weekend dates:  ""saturday"", ""friday night"""	
+AJWES6SFIP3AT	EVENT	3__probably_useful	"Emails from me referring to ""meet""."	"getPhraseMention(tt:email, ""meet"")"
+AJWES6SFIP3AT	EVENT	3__probably_useful	Messages containing concerts or sports events.	"getPhrasesLike(tt:email, merge(""concert"",""sports events""))"
+AJWES6SFIP3AT	EVENT	3__probably_useful	References to bars or dinner.	"getPhrasesLike(tt:email, merge(""bar"",""dinner""))"
+AJWES6SFIP3AT	HUMOR	1__probably_not_useful	"Messages containing references to ""facebook"""	"getPhraseMention(tt:email, ""facebook"")"
+AJWES6SFIP3AT	HUMOR	3__probably_useful	"Mail to friends with a link to ""youtube.com"""	"getPhraseMention(tt:email, ""youtube.com"")"
+AJWES6SFIP3AT	HUMOR	4__very_useful	"Emails containing ""OMG"" and ""lol""."	"getPhraseMention(tt:email, merge(""omg"",""lol""))"
+AJWES6SFIP3AT	HUMOR	4__very_useful	"Mails to friends with attached videos, typically with ""!"" in the message"	"or( getPhraseMention(tt:email,""!""), stringMatch(tt:attachment,""mp4""))"
+AJWES6SFIP3AT	HUMOR	4__very_useful	"Messages that contain the word ""funny"" and include a picture file."	
+AJWES6SFIP3AT	REMINDER	3__probably_useful	Messages to myself that contain a time and date.	"and( getCatInstance(tt:email, ne:DATE) , getCatInstance(tt:email, ne:TIME), stringEquals(tt:sender, tt:recipient) )"
+AJWES6SFIP3AT	REMINDER	3__probably_useful	"The mails usually contain ""bill"" or ""urgent"" in either body or text."	"getPhraseMention(tt:body,merge(""bill"",""urgent""))"
+AJWES6SFIP3AT	REMINDER	3__probably_useful	"The messages that have ""pick up"" or ""buy"" in its body."	"getPhraseMention(tt:body,merge(""pick up"",""buy"")"
+AJWES6SFIP3AT	REMINDER	4__very_useful	"Mail to myself containing ""meeting"" in the text."	"and ( stringEquals( tt:sender, tt:recipient) , getPhraseMention(tt:body, ""meeting"") )"
+AJWES6SFIP3AT	REMINDER	4__very_useful	"Messages to myself containing ""reminder"" or ""remember"" in subject."	"and ( stringEquals( tt:sender, tt:recipient) , getPhraseMention(tt:subject, merge(""reminder"",""remember"") ) )"
+AOAZMLP27GD81	POLICY	2__perhaps_useful	The emails will sometimes contain a pdf attachment	"stringMatch(tt:attachment, ""pdf"")"
+AOAZMLP27GD81	POLICY	3__probably_useful	Emails will come from the @initech-corp.com domain	"stringMatch(tt:sender, ""@initech-corp.com"")"
+AOAZMLP27GD81	POLICY	3__probably_useful	"Emails will often be sent to All, allstaff, staff, or everyone@initech-corp.com"	"stringMatch(tt:recipient, merge(""all"",""allstaff"",""staff"",""everyone@initech-corp.com"" ) )"
+AOAZMLP27GD81	POLICY	3__probably_useful	"The body of the email will sometimes contain the words ""new policy"""	"getPhraseMention(tt:body, ""new policy"")"
+AOAZMLP27GD81	POLICY	4__very_useful	"Subjects will often contain the word ""policy"""	"getPhraseMention(tt:subject, ""policy"")"
