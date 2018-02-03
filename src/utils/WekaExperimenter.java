@@ -141,15 +141,15 @@ public class WekaExperimenter {
 	}
 
 	public static void main(String[] args){
-		int numSplits = 20;
-		double perc = 0.1;
+		int numSplits = 100; //20;
+		double perc = 0.08; //0.1;
 		String[] categories = {"CONTACT", "EMPLOYEE", "EVENT", "HUMOR", "MEETING", "POLICY", "REMINDER"};
 		
-		List<EmailObject> emails = TSVEmailReader.parseTSVFileToEmails("/Users/shashans/Work/ConceptLearning/mturk/Emails/email_Dec20.log");
+		List<EmailObject> emails = TSVEmailReader.parseTSVFileToEmails("data/emails.dataset");
 		for(String category:categories){
 			runExperiment("data/"+category+"_features.arff", perc, numSplits);
-			runBowExperiments(emails, perc, numSplits, category);
-			runJointExperiment(emails, perc, numSplits, category, "data/"+category+"_features.arff");
+			//runBowExperiments(emails, perc, numSplits, category);
+			//runJointExperiment(emails, perc, numSplits, category, "data/"+category+"_features.arff");
 		}
 
 	}

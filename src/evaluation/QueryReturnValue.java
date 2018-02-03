@@ -43,9 +43,9 @@ public class QueryReturnValue {
 		
 		this.email=emailObj;
 		
-		if(str.endsWith(":s") || str.startsWith("NULL")){
+		if(str.endsWith(":s") || str.startsWith("null")){
 			this.type = QueryReturnValue.TYPE_STRING;
-			this.stringValue = str.startsWith("NULL") ? "" : str.substring(0, str.lastIndexOf(":s")).replaceAll("_", " ");
+			this.stringValue = str.startsWith("null") ? "" : str.substring(0, str.lastIndexOf(":s")).replaceAll("_", " ");
 		}
 		else if(str.startsWith("\"") && str.endsWith("\"")){
 			this.type = QueryReturnValue.TYPE_STRING;

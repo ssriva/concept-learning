@@ -93,8 +93,8 @@ public class LogicalExpressionExecutor {
 		
 		//expr1 = LogicalExpressionExecutor.getExpressionFromString(" (stringMatch subject:tt NULL:s) ");
 		//expr1 = LogicalExpressionExecutor.getExpressionFromString(" ( stringMatch attachment:tt (stringVal STAR ) ) ");
-		expr1 = LogicalExpressionExecutor.getExpressionFromString(" (getCatInstance (merge body:tt recipient:tt ) (merge \"police\" (merge ZY:pos TIME:ne ) ) ) ");
-		EmailObject email = TSVEmailReader.parseLineToEmail("AGRKG3YT3KMD8	POLICY	Barack Obama's barack@gmail.com office policy	So, yeah, there will be a new policy at 3pm in the office today. Everyone needs to make sure that TPS Cover letters are stocked at all times. That way, when we need them, they're there.	mike@initech-corp.com	NONE	mike@initech-corp.com");
+		expr1 = LogicalExpressionExecutor.getExpressionFromString(" ( getPhraseMention body:tt ( merge don't_forget:s remember:s reminder:s) )"); //(getCatInstance (merge body:tt recipient:tt ) (merge \"police\" (merge ZY:pos TIME:ne ) ) ) ");
+		EmailObject email = TSVEmailReader.parseLineToEmail("AGRKG3YT3KMD8	POLICY	Barack Obama's barack@gmail.com office policy	So, yeah, there will be a new policy at 3pm in the office today. Everyone needs to remember that TPS Cover letters are stocked at all times. That way, when we need them, they're there.	mike@initech-corp.com	NONE	mike@initech-corp.com");
 		LogicalExpressionExecutor.evaluateOnEmail(expr1, email);
 		
 	}

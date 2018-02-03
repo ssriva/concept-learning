@@ -188,7 +188,7 @@ emails will frequently have phrases such as "need" or "please."
 ( getPhraseMention email:tt ( merge need:s please:s ) )
 
 emails might, but usually do not have attachments.	
-( not ( not ( stringEquals attachment:tt 	) ) )
+( not ( not ( stringEquals attachment:tt null:s ) ) )
 
 emails usually will have phrases such as "meeting" in the subject.	
 ( getPhrasesLike subject:tt meeting:s )
@@ -215,7 +215,7 @@ emails likely are not sent to someone else.
 ( stringEquals sender:tt recipient:tt )
 
 phrases such as "don't forget," "remember," and "reminder" are often used.	
-( getPhraseMention body:tt ( merge dont_forget:s remember:s reminder:s) )
+( getPhraseMention body:tt ( merge don't_forget:s remember:s reminder:s) )
 	
 emails may contain an attachment.	
 ( not ( stringEquals attachment:tt null:s ) )
@@ -228,6 +228,15 @@ email likely has words such as "policy" or "announcement" in the subject.
 
 message contains "please"	
 ( getPhraseMention email:tt please:s )
+
+message contains "contact"
+( getPhraseMention email:tt contact:s)
+
+message contains "remind"
+( getPhraseMention email:tt remind:s)
+
+message contains "reminder"
+( getPhraseMention email:tt reminder:s)
 	
 message body contains "i need"	
 ( getPhraseMention body:tt i_need:s )
@@ -257,7 +266,7 @@ message contains "fun"
 ( getPhraseMention email:tt fun:s )
 
 message contains "let's"	
-( getPhraseMention email:tt let_s:s )
+( getPhraseMention email:tt let's:s )
 
 message sometimes starts with "hey"	
 ( beginWith body:tt  hey:s )
