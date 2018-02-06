@@ -170,7 +170,7 @@ AJWES6SFIP3AT	EVENT	3__probably_useful	Messages containing concerts or sports ev
 AJWES6SFIP3AT	EVENT	3__probably_useful	References to bars or dinner.	"getPhrasesLike(tt:email, merge(""bar"",""dinner""))"
 AJWES6SFIP3AT	HUMOR	1__probably_not_useful	"Messages containing references to ""facebook"""	"getPhraseMention(tt:email, ""facebook"")"
 AJWES6SFIP3AT	HUMOR	3__probably_useful	"Mail to friends with a link to ""youtube.com"""	"getPhraseMention(tt:email, ""youtube.com"")"
-AJWES6SFIP3AT	HUMOR	4__very_useful	"Emails containing ""OMG"" and ""lol""."	"getPhraseMention(tt:email, merge(""omg"",""lol""))"
+AJWES6SFIP3AT	HUMOR	4__very_useful	"Emails containing ""OMG"" or ""lol""."	"getPhraseMention(tt:email, merge(""omg"",""lol""))"
 AJWES6SFIP3AT	HUMOR	4__very_useful	"Mails to friends with attached videos, typically with ""!"" in the message"	"or( getPhraseMention(tt:email,""!""), stringMatch(tt:attachment,""mp4""))"
 AJWES6SFIP3AT	HUMOR	4__very_useful	"Messages that contain the word ""funny"" and include a picture file."	
 AJWES6SFIP3AT	REMINDER	3__probably_useful	Messages to myself that contain a time and date.	"and( getCatInstance(tt:email, ne:DATE) , getCatInstance(tt:email, ne:TIME), stringEquals(tt:sender, tt:recipient) )"
